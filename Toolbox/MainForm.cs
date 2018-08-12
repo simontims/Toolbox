@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace Toolbox
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void settings_Click(object sender, EventArgs e)
+        {
+            settingsForm settingsForm = new settingsForm();
+            settingsForm.ShowDialog();
         }
     }
 }
