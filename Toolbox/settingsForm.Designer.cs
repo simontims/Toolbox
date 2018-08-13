@@ -45,6 +45,7 @@
             this.labelTestDest = new System.Windows.Forms.Label();
             this.textBoxTestDestination = new System.Windows.Forms.TextBox();
             this.SMTPPassword = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
             this.SuspendLayout();
             // 
@@ -203,12 +204,25 @@
             this.SMTPPassword.Name = "SMTPPassword";
             this.SMTPPassword.Size = new System.Drawing.Size(270, 20);
             this.SMTPPassword.TabIndex = 20;
+            this.SMTPPassword.UseSystemPasswordChar = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(427, 163);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 22;
+            this.button1.Text = "Show";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
+            this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button1_MouseUp);
             // 
             // settingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 296);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.SMTPPassword);
             this.Controls.Add(this.textBoxTestDestination);
             this.Controls.Add(this.labelTestDest);
@@ -254,5 +268,6 @@
         private System.Windows.Forms.Label labelTestDest;
         private System.Windows.Forms.TextBox textBoxTestDestination;
         private System.Windows.Forms.MaskedTextBox SMTPPassword;
+        private System.Windows.Forms.Button button1;
     }
 }
