@@ -44,8 +44,8 @@
             this.buttonTest = new System.Windows.Forms.Button();
             this.labelTestDest = new System.Windows.Forms.Label();
             this.textBoxTestDestination = new System.Windows.Forms.TextBox();
-            this.SMTPPassword = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.SMTPPassword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,7 +139,7 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(39, 163);
+            this.labelPassword.Location = new System.Drawing.Point(39, 159);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(53, 13);
             this.labelPassword.TabIndex = 12;
@@ -174,7 +174,7 @@
             // 
             // buttonTest
             // 
-            this.buttonTest.Location = new System.Drawing.Point(427, 201);
+            this.buttonTest.Location = new System.Drawing.Point(427, 184);
             this.buttonTest.Name = "buttonTest";
             this.buttonTest.Size = new System.Drawing.Size(75, 23);
             this.buttonTest.TabIndex = 17;
@@ -185,7 +185,7 @@
             // labelTestDest
             // 
             this.labelTestDest.AutoSize = true;
-            this.labelTestDest.Location = new System.Drawing.Point(8, 207);
+            this.labelTestDest.Location = new System.Drawing.Point(8, 188);
             this.labelTestDest.Name = "labelTestDest";
             this.labelTestDest.Size = new System.Drawing.Size(84, 13);
             this.labelTestDest.TabIndex = 18;
@@ -193,22 +193,14 @@
             // 
             // textBoxTestDestination
             // 
-            this.textBoxTestDestination.Location = new System.Drawing.Point(111, 204);
+            this.textBoxTestDestination.Location = new System.Drawing.Point(110, 185);
             this.textBoxTestDestination.Name = "textBoxTestDestination";
             this.textBoxTestDestination.Size = new System.Drawing.Size(269, 20);
             this.textBoxTestDestination.TabIndex = 19;
             // 
-            // SMTPPassword
-            // 
-            this.SMTPPassword.Location = new System.Drawing.Point(110, 163);
-            this.SMTPPassword.Name = "SMTPPassword";
-            this.SMTPPassword.Size = new System.Drawing.Size(270, 20);
-            this.SMTPPassword.TabIndex = 20;
-            this.SMTPPassword.UseSystemPasswordChar = true;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(427, 163);
+            this.button1.Location = new System.Drawing.Point(427, 155);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 22;
@@ -217,13 +209,21 @@
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             this.button1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.button1_MouseUp);
             // 
+            // SMTPPassword
+            // 
+            this.SMTPPassword.Location = new System.Drawing.Point(110, 155);
+            this.SMTPPassword.Name = "SMTPPassword";
+            this.SMTPPassword.Size = new System.Drawing.Size(269, 20);
+            this.SMTPPassword.TabIndex = 23;
+            this.SMTPPassword.UseSystemPasswordChar = true;
+            // 
             // settingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 296);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.SMTPPassword);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxTestDestination);
             this.Controls.Add(this.labelTestDest);
             this.Controls.Add(this.buttonTest);
@@ -267,7 +267,7 @@
         private System.Windows.Forms.Button buttonTest;
         private System.Windows.Forms.Label labelTestDest;
         private System.Windows.Forms.TextBox textBoxTestDestination;
-        private System.Windows.Forms.MaskedTextBox SMTPPassword;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox SMTPPassword;
     }
 }
