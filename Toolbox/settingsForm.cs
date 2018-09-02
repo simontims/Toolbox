@@ -91,6 +91,7 @@ namespace Toolbox
         private void buttonOK_Click(object sender, EventArgs e)
         {
             this.SaveSettings();
+            Program.LogToFile("Save settings");
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
