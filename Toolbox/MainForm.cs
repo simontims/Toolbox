@@ -21,16 +21,12 @@ namespace Toolbox
         }
 
 
-        private void settings_Click(object sender, EventArgs e)
+        private void Settings_Click(object sender, EventArgs e)
         {
-
-            Program.LogToFile("Open settings dialog");
+            Program.LogToFile("Open email settings dialog");
             settingsForm settingsForm = new settingsForm();
             settingsForm.ShowDialog();
         }
-
-
-
 
     }
 }

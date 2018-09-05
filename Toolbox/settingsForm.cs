@@ -38,17 +38,21 @@ namespace Toolbox
             string encryptionKey = attribute.Value;
 
             string UnencryptedPassword = "";
+            string UnencryptedFTPPassword = "";
 
             try
             {
                 UnencryptedPassword = Encrypt.DecryptString(Properties.Settings.Default.Password.ToString(), encryptionKey.ToString());
+                UnencryptedFTPPassword = Encrypt.DecryptString(Properties.Settings.Default.FTPPassword.ToString(), encryptionKey.ToString());
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // MessageBox.Show(ex.ToString());
             }
 
             // set all the fields in the form here, from the settings loaded above
+
+            // Email Tab
             SMTPServer.Text = Properties.Settings.Default.SMTPServer;
             Port.Value = Properties.Settings.Default.SMTPPort;
             FromAddress.Text = Properties.Settings.Default.FromAddress;
@@ -57,6 +61,15 @@ namespace Toolbox
             textBoxUsername.Text = Properties.Settings.Default.Username;
             SMTPPassword.Text = UnencryptedPassword;
             textBoxTestDestination.Text = Properties.Settings.Default.TestDestination;
+
+            // FTP Tab
+            FTPHostname.Text = Properties.Settings.Default.FTPHostName;
+            FTPUsername.Text = Properties.Settings.Default.FTPUserName;
+            FTPPassword.Text = UnencryptedFTPPassword;
+            FTPRemoteDir.Text = Properties.Settings.Default.FTPRemoteDir;
+            FTPLocalDir.Text = Properties.Settings.Default.FTPLocalDir;
+            checkBoxSSLTLS.Checked = Properties.Settings.Default.FTPSSLTLS;
+            checkBoxPASV.Checked = Properties.Settings.Default.FTPPASV;
         }
 
         private void SaveSettings()
@@ -65,16 +78,19 @@ namespace Toolbox
             var attribute = (GuidAttribute)assembly.GetCustomAttributes(typeof(GuidAttribute), true)[0];
             string encryptionKey = attribute.Value;
             string EncryptedSMTPPassword = "";
+            string EncryptedFTPPassword = "";
 
             try
             {
                 EncryptedSMTPPassword = Encrypt.EncryptString(SMTPPassword.Text, encryptionKey);
+                EncryptedFTPPassword = Encrypt.EncryptString(FTPPassword.Text, encryptionKey);
             }
             catch ( Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                // MessageBox.Show(ex.ToString());
             }
 
+            // Email
             Properties.Settings.Default.SMTPServer = SMTPServer.Text;
             Properties.Settings.Default.SMTPPort = Convert.ToInt32(Port.Value);
             Properties.Settings.Default.FromAddress = FromAddress.Text;
@@ -83,6 +99,15 @@ namespace Toolbox
             Properties.Settings.Default.Username = textBoxUsername.Text;
             Properties.Settings.Default.Password = EncryptedSMTPPassword;
             Properties.Settings.Default.TestDestination = textBoxTestDestination.Text;
+
+            // FTP
+            Properties.Settings.Default.FTPHostName = FTPHostname.Text;
+            Properties.Settings.Default.FTPUserName = FTPUsername.Text;
+            Properties.Settings.Default.FTPPassword = EncryptedFTPPassword;
+            Properties.Settings.Default.FTPRemoteDir = FTPRemoteDir.Text;
+            Properties.Settings.Default.FTPLocalDir = FTPLocalDir.Text;
+            Properties.Settings.Default.FTPSSLTLS = checkBoxSSLTLS.Checked;
+            Properties.Settings.Default.FTPPASV = checkBoxPASV.Checked;
 
             Properties.Settings.Default.Save();
         }
@@ -147,5 +172,21 @@ namespace Toolbox
         {
             SMTPPassword.UseSystemPasswordChar = true;
         }
+
+        private void btnShowFTPPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            FTPPassword.UseSystemPasswordChar = false;
+        }
+
+        private void btnShowFTPPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            FTPPassword.UseSystemPasswordChar = true;
+        }
+
+        private void TabFTP_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

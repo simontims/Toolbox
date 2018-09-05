@@ -1,6 +1,6 @@
 ﻿namespace Toolbox
 {
-    partial class MainWindow
+    partial class FTPSettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.settings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // settings
-            // 
-            this.settings.Location = new System.Drawing.Point(23, 124);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(92, 23);
-            this.settings.TabIndex = 0;
-            this.settings.Text = "Settings";
-            this.settings.UseVisualStyleBackColor = true;
-            this.settings.Click += new System.EventHandler(this.Settings_Click);
-            // 
-            // MainWindow
+            // FTPSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 170);
-            this.Controls.Add(this.settings);
-            this.Name = "MainWindow";
-            this.Text = "Toolbox";
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "FTPSettingsForm";
+            this.Text = "FTP Settings";
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button settings;
     }
 }
-
