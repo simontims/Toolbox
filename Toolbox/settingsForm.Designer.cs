@@ -321,6 +321,7 @@
             this.btnFTPTest.TabIndex = 12;
             this.btnFTPTest.Text = "Test";
             this.btnFTPTest.UseVisualStyleBackColor = true;
+            this.btnFTPTest.Click += new System.EventHandler(this.btnFTPTest_Click);
             // 
             // FTPLocalDir
             // 

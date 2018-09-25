@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.IO;
+using System.Net;
 
 namespace Toolbox
 {
@@ -112,7 +114,6 @@ namespace Toolbox
             Properties.Settings.Default.Save();
         }
 
-
         private void buttonOK_Click(object sender, EventArgs e)
         {
             this.SaveSettings();
@@ -188,5 +189,62 @@ namespace Toolbox
 
         }
 
+        private void btnFTPTest_Click(object sender, EventArgs e)
+        {
+            // Don't save settings when testing
+            string FTPUrl = null;
+            if (!FTPHostname.Text.StartsWith("ftp://", StringComparison.OrdinalIgnoreCase)) FTPUrl = "FTP://" + FTPHostname.Text;
+
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(FTPUrl);
+
+            request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+
+            request.Credentials = new NetworkCredential(FTPUsername.Text, FTPPassword.Text);
+
+            FtpWebResponse response = null;
+
+            try
+            {
+                response = (FtpWebResponse)request.GetResponse();
+                MessageBox.Show($"Status {response.StatusDescription}");
+                response.Close();
+            }
+            catch (WebException webex)
+            {
+                MessageBox.Show("Failed to connect: " + webex);
+            }
+            
+        }
+
+            /*
+            // https://docs.microsoft.com/en-us/dotnet/framework/network-programming/how-to-list-directory-contents-with-ftp
+            // https://docs.microsoft.com/en-us/dotnet/framework/network-programming/how-to-download-files-with-ftp
+            // https://docs.microsoft.com/en-us/dotnet/framework/network-programming/how-to-upload-files-with-ftp
+            
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(FTPHostname.Text);
+
+            // Download
+            request.Method = WebRequestMethods.Ftp.DownloadFile;
+
+            // Could use ListDirectoryDetails to check connection
+            // request.Method = WebRequestMethods.Ftp.ListDirectoryDetails;
+
+
+            request.Credentials = new NetworkCredential(FTPUsername.Text, FTPPassword.Text);
+
+            FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+
+            Stream responseStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(responseStream);
+            
+            Console.WriteLine(reader.ReadToEnd());
+
+            Console.WriteLine($"Download Complete, status {response.StatusDescription}");
+
+            reader.Close();
+            response.Close();
+
+            */
+        
     }
 }
