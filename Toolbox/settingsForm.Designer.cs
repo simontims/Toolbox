@@ -274,7 +274,7 @@
             this.TabEmail.Padding = new System.Windows.Forms.Padding(3);
             this.TabEmail.Size = new System.Drawing.Size(525, 270);
             this.TabEmail.TabIndex = 0;
-            this.TabEmail.Text = "Email";
+            this.TabEmail.Text = "Email Send";
             this.TabEmail.UseVisualStyleBackColor = true;
             // 
             // TabFTP
