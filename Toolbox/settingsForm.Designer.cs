@@ -63,10 +63,25 @@
             this.checkBoxSSLTLS = new System.Windows.Forms.CheckBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblFTPServer = new System.Windows.Forms.Label();
+            this.TabEmailReceive = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.buttonMailTest = new System.Windows.Forms.Button();
+            this.buttonShowMailPassword = new System.Windows.Forms.Button();
+            this.MailPassword = new System.Windows.Forms.TextBox();
+            this.MailServer = new System.Windows.Forms.TextBox();
+            this.MailPort = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxMailUsername = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.MailProtocol = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.TabEmail.SuspendLayout();
             this.TabFTP.SuspendLayout();
+            this.TabEmailReceive.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MailPort)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -159,7 +174,7 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(45, 141);
+            this.labelPassword.Location = new System.Drawing.Point(47, 141);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(53, 13);
             this.labelPassword.TabIndex = 12;
@@ -207,7 +222,7 @@
             // labelTestDest
             // 
             this.labelTestDest.AutoSize = true;
-            this.labelTestDest.Location = new System.Drawing.Point(14, 177);
+            this.labelTestDest.Location = new System.Drawing.Point(16, 177);
             this.labelTestDest.Name = "labelTestDest";
             this.labelTestDest.Size = new System.Drawing.Size(84, 13);
             this.labelTestDest.TabIndex = 18;
@@ -244,6 +259,7 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tabControl1.Controls.Add(this.TabEmail);
+            this.tabControl1.Controls.Add(this.TabEmailReceive);
             this.tabControl1.Controls.Add(this.TabFTP);
             this.tabControl1.Location = new System.Drawing.Point(8, 3);
             this.tabControl1.Name = "tabControl1";
@@ -429,6 +445,143 @@
             this.lblFTPServer.Text = "Host name:[Port]";
             this.lblFTPServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // TabEmailReceive
+            // 
+            this.TabEmailReceive.Controls.Add(this.MailProtocol);
+            this.TabEmailReceive.Controls.Add(this.label2);
+            this.TabEmailReceive.Controls.Add(this.buttonMailTest);
+            this.TabEmailReceive.Controls.Add(this.buttonShowMailPassword);
+            this.TabEmailReceive.Controls.Add(this.MailPassword);
+            this.TabEmailReceive.Controls.Add(this.MailServer);
+            this.TabEmailReceive.Controls.Add(this.MailPort);
+            this.TabEmailReceive.Controls.Add(this.label4);
+            this.TabEmailReceive.Controls.Add(this.label5);
+            this.TabEmailReceive.Controls.Add(this.label6);
+            this.TabEmailReceive.Controls.Add(this.textBoxMailUsername);
+            this.TabEmailReceive.Controls.Add(this.label7);
+            this.TabEmailReceive.Location = new System.Drawing.Point(4, 22);
+            this.TabEmailReceive.Name = "TabEmailReceive";
+            this.TabEmailReceive.Size = new System.Drawing.Size(525, 270);
+            this.TabEmailReceive.TabIndex = 2;
+            this.TabEmailReceive.Text = "Email Receive";
+            this.TabEmailReceive.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "Mail Server";
+            // 
+            // buttonMailTest
+            // 
+            this.buttonMailTest.Location = new System.Drawing.Point(419, 151);
+            this.buttonMailTest.Name = "buttonMailTest";
+            this.buttonMailTest.Size = new System.Drawing.Size(75, 23);
+            this.buttonMailTest.TabIndex = 35;
+            this.buttonMailTest.Text = "Test";
+            this.buttonMailTest.UseVisualStyleBackColor = true;
+            this.buttonMailTest.Click += new System.EventHandler(this.buttonMailTest_Click);
+            // 
+            // buttonShowMailPassword
+            // 
+            this.buttonShowMailPassword.Location = new System.Drawing.Point(419, 115);
+            this.buttonShowMailPassword.Name = "buttonShowMailPassword";
+            this.buttonShowMailPassword.Size = new System.Drawing.Size(75, 23);
+            this.buttonShowMailPassword.TabIndex = 38;
+            this.buttonShowMailPassword.Text = "Show";
+            this.buttonShowMailPassword.UseVisualStyleBackColor = true;
+            this.buttonShowMailPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnShowMailPass_MouseDown);
+            this.buttonShowMailPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnShowMailPass_MouseUp);
+            // 
+            // MailPassword
+            // 
+            this.MailPassword.Location = new System.Drawing.Point(106, 117);
+            this.MailPassword.Name = "MailPassword";
+            this.MailPassword.Size = new System.Drawing.Size(269, 20);
+            this.MailPassword.TabIndex = 39;
+            this.MailPassword.UseSystemPasswordChar = true;
+            // 
+            // MailServer
+            // 
+            this.MailServer.Location = new System.Drawing.Point(106, 17);
+            this.MailServer.Name = "MailServer";
+            this.MailServer.Size = new System.Drawing.Size(269, 20);
+            this.MailServer.TabIndex = 25;
+            // 
+            // MailPort
+            // 
+            this.MailPort.Location = new System.Drawing.Point(419, 16);
+            this.MailPort.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
+            this.MailPort.Name = "MailPort";
+            this.MailPort.Size = new System.Drawing.Size(56, 20);
+            this.MailPort.TabIndex = 27;
+            this.MailPort.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(54, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(46, 13);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Protocol";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(387, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(26, 13);
+            this.label5.TabIndex = 26;
+            this.label5.Text = "Port";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(45, 89);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Username";
+            // 
+            // textBoxMailUsername
+            // 
+            this.textBoxMailUsername.Location = new System.Drawing.Point(106, 86);
+            this.textBoxMailUsername.Name = "textBoxMailUsername";
+            this.textBoxMailUsername.Size = new System.Drawing.Size(269, 20);
+            this.textBoxMailUsername.TabIndex = 34;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(47, 120);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Password";
+            // 
+            // MailProtocol
+            // 
+            this.MailProtocol.FormattingEnabled = true;
+            this.MailProtocol.Items.AddRange(new object[] {
+            "POP",
+            "IMAP"});
+            this.MailProtocol.Location = new System.Drawing.Point(106, 49);
+            this.MailProtocol.Name = "MailProtocol";
+            this.MailProtocol.Size = new System.Drawing.Size(121, 21);
+            this.MailProtocol.TabIndex = 40;
+            // 
             // settingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +599,9 @@
             this.TabEmail.PerformLayout();
             this.TabFTP.ResumeLayout(false);
             this.TabFTP.PerformLayout();
+            this.TabEmailReceive.ResumeLayout(false);
+            this.TabEmailReceive.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MailPort)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -487,5 +643,18 @@
         private System.Windows.Forms.CheckBox checkBoxPASV;
         private System.Windows.Forms.Button btnFTPTest;
         private System.Windows.Forms.Button btnShowFTPPass;
+        private System.Windows.Forms.TabPage TabEmailReceive;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonMailTest;
+        private System.Windows.Forms.Button buttonShowMailPassword;
+        private System.Windows.Forms.TextBox MailPassword;
+        private System.Windows.Forms.TextBox MailServer;
+        private System.Windows.Forms.NumericUpDown MailPort;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxMailUsername;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox MailProtocol;
     }
 }
