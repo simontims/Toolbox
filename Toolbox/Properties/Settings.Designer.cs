@@ -274,5 +274,17 @@ namespace Toolbox.Properties {
                 this["MailProtocol"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TimerSeconds {
+            get {
+                return ((int)(this["TimerSeconds"]));
+            }
+            set {
+                this["TimerSeconds"] = value;
+            }
+        }
     }
 }
