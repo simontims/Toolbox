@@ -63,6 +63,16 @@ namespace Toolbox
 
             // set all the fields in the form here, from the settings loaded above
 
+            // System Tab
+            if ((Properties.Settings.Default.TimerSeconds > numericTimerSeconds.Maximum) || (Properties.Settings.Default.TimerSeconds < numericTimerSeconds.Minimum))
+            {
+                numericTimerSeconds.Value = numericTimerSeconds.Minimum;
+            }
+            else
+            {
+                numericTimerSeconds.Value = Properties.Settings.Default.TimerSeconds;
+            }
+
             // Email Send Tab
             SMTPServer.Text = Properties.Settings.Default.SMTPServer;
             Port.Value = Properties.Settings.Default.SMTPPort;
@@ -109,6 +119,9 @@ namespace Toolbox
             {
                 // MessageBox.Show(ex.ToString());
             }
+
+            // System
+            Properties.Settings.Default.TimerSeconds = Convert.ToInt32(numericTimerSeconds.Value);
 
             // Email Send
             Properties.Settings.Default.SMTPServer = SMTPServer.Text;
@@ -352,6 +365,8 @@ namespace Toolbox
                 }
             }
         }
+
+        
 
         /*
         // https://docs.microsoft.com/en-us/dotnet/framework/network-programming/how-to-list-directory-contents-with-ftp
