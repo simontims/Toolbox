@@ -33,6 +33,7 @@
             // 
             // settings
             // 
+            this.settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.settings.Location = new System.Drawing.Point(23, 124);
             this.settings.Name = "settings";
             this.settings.Size = new System.Drawing.Size(92, 23);
@@ -45,7 +46,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 170);
+            this.ClientSize = new System.Drawing.Size(298, 165);
             this.Controls.Add(this.settings);
             this.Name = "MainWindow";
             this.Text = "Toolbox";
