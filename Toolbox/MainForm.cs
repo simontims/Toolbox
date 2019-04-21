@@ -30,7 +30,7 @@ namespace Toolbox
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
-            timer1.Interval = Properties.Settings.Default.TimerSeconds*1000;
+            timer1.Interval = 1000;
             if (timer1.Enabled)
             {
                 timer1.Enabled = false;
@@ -41,7 +41,7 @@ namespace Toolbox
             {
                 timer1.Enabled = true;
                 buttonStart.Text = "Stop";
-                labelStatusValue.Text = "Running";
+                labelStatusValue.Text = Properties.Settings.Default.TimerSeconds.ToString();
             }
         }
 
@@ -49,8 +49,13 @@ namespace Toolbox
         private void Timer1_Tick(object sender, EventArgs e)
         {
             counter++;
+            labelStatusValue.Text = (Properties.Settings.Default.TimerSeconds - counter).ToString();
+            if (counter >= (Properties.Settings.Default.TimerSeconds))
+            {
+                labelStatusValue.Text = "Run Task";
+                counter = -1;
+            }
 
-            labelStatusValue.Text = counter.ToString();
         }
     }
 }
