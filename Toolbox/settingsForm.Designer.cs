@@ -47,6 +47,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.SMTPPassword = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabSystem = new System.Windows.Forms.TabPage();
+            this.numericTimerSeconds = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             this.TabEmail = new System.Windows.Forms.TabPage();
             this.TabEmailReceive = new System.Windows.Forms.TabPage();
             this.MailProtocol = new System.Windows.Forms.ComboBox();
@@ -76,17 +79,23 @@
             this.checkBoxSSLTLS = new System.Windows.Forms.CheckBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblFTPServer = new System.Windows.Forms.Label();
-            this.tabSystem = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.numericTimerSeconds = new System.Windows.Forms.NumericUpDown();
+            this.TabMTQQ = new System.Windows.Forms.TabPage();
+            this.labelMQTTBroker = new System.Windows.Forms.Label();
+            this.MqttBroker = new System.Windows.Forms.TextBox();
+            this.labelTopic = new System.Windows.Forms.Label();
+            this.MqttTopic = new System.Windows.Forms.TextBox();
+            this.labelMqttPort = new System.Windows.Forms.Label();
+            this.MqttPort = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.Port)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabSystem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericTimerSeconds)).BeginInit();
             this.TabEmail.SuspendLayout();
             this.TabEmailReceive.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MailPort)).BeginInit();
             this.TabFTP.SuspendLayout();
-            this.tabSystem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericTimerSeconds)).BeginInit();
+            this.TabMTQQ.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MqttPort)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -267,11 +276,54 @@
             this.tabControl1.Controls.Add(this.TabEmail);
             this.tabControl1.Controls.Add(this.TabEmailReceive);
             this.tabControl1.Controls.Add(this.TabFTP);
+            this.tabControl1.Controls.Add(this.TabMTQQ);
             this.tabControl1.Location = new System.Drawing.Point(8, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(533, 296);
             this.tabControl1.TabIndex = 24;
+            // 
+            // tabSystem
+            // 
+            this.tabSystem.Controls.Add(this.numericTimerSeconds);
+            this.tabSystem.Controls.Add(this.label3);
+            this.tabSystem.Location = new System.Drawing.Point(4, 22);
+            this.tabSystem.Name = "tabSystem";
+            this.tabSystem.Size = new System.Drawing.Size(525, 270);
+            this.tabSystem.TabIndex = 3;
+            this.tabSystem.Text = "System";
+            this.tabSystem.UseVisualStyleBackColor = true;
+            // 
+            // numericTimerSeconds
+            // 
+            this.numericTimerSeconds.Location = new System.Drawing.Point(126, 12);
+            this.numericTimerSeconds.Maximum = new decimal(new int[] {
+            3600,
+            0,
+            0,
+            0});
+            this.numericTimerSeconds.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericTimerSeconds.Name = "numericTimerSeconds";
+            this.numericTimerSeconds.Size = new System.Drawing.Size(78, 20);
+            this.numericTimerSeconds.TabIndex = 1;
+            this.numericTimerSeconds.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(38, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Timer Seconds:";
             // 
             // TabEmail
             // 
@@ -588,44 +640,77 @@
             this.lblFTPServer.Text = "Host name:[Port]";
             this.lblFTPServer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tabSystem
+            // TabMTQQ
             // 
-            this.tabSystem.Controls.Add(this.numericTimerSeconds);
-            this.tabSystem.Controls.Add(this.label3);
-            this.tabSystem.Location = new System.Drawing.Point(4, 22);
-            this.tabSystem.Name = "tabSystem";
-            this.tabSystem.Size = new System.Drawing.Size(525, 270);
-            this.tabSystem.TabIndex = 3;
-            this.tabSystem.Text = "System";
-            this.tabSystem.UseVisualStyleBackColor = true;
+            this.TabMTQQ.Controls.Add(this.MqttPort);
+            this.TabMTQQ.Controls.Add(this.labelMqttPort);
+            this.TabMTQQ.Controls.Add(this.MqttTopic);
+            this.TabMTQQ.Controls.Add(this.labelTopic);
+            this.TabMTQQ.Controls.Add(this.MqttBroker);
+            this.TabMTQQ.Controls.Add(this.labelMQTTBroker);
+            this.TabMTQQ.Location = new System.Drawing.Point(4, 22);
+            this.TabMTQQ.Name = "TabMTQQ";
+            this.TabMTQQ.Size = new System.Drawing.Size(525, 270);
+            this.TabMTQQ.TabIndex = 4;
+            this.TabMTQQ.Text = "MQTT";
+            this.TabMTQQ.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // labelMQTTBroker
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Timer Seconds:";
+            this.labelMQTTBroker.AutoSize = true;
+            this.labelMQTTBroker.Location = new System.Drawing.Point(43, 19);
+            this.labelMQTTBroker.Name = "labelMQTTBroker";
+            this.labelMQTTBroker.Size = new System.Drawing.Size(72, 13);
+            this.labelMQTTBroker.TabIndex = 0;
+            this.labelMQTTBroker.Text = "MQTT Broker";
+            this.labelMQTTBroker.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // numericTimerSeconds
+            // MqttBroker
             // 
-            this.numericTimerSeconds.Location = new System.Drawing.Point(126, 12);
-            this.numericTimerSeconds.Maximum = new decimal(new int[] {
-            3600,
+            this.MqttBroker.Location = new System.Drawing.Point(131, 16);
+            this.MqttBroker.Name = "MqttBroker";
+            this.MqttBroker.Size = new System.Drawing.Size(232, 20);
+            this.MqttBroker.TabIndex = 1;
+            // 
+            // labelTopic
+            // 
+            this.labelTopic.AutoSize = true;
+            this.labelTopic.Location = new System.Drawing.Point(79, 48);
+            this.labelTopic.Name = "labelTopic";
+            this.labelTopic.Size = new System.Drawing.Size(34, 13);
+            this.labelTopic.TabIndex = 2;
+            this.labelTopic.Text = "Topic";
+            this.labelTopic.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // MqttTopic
+            // 
+            this.MqttTopic.Location = new System.Drawing.Point(131, 45);
+            this.MqttTopic.Name = "MqttTopic";
+            this.MqttTopic.Size = new System.Drawing.Size(232, 20);
+            this.MqttTopic.TabIndex = 3;
+            // 
+            // labelMqttPort
+            // 
+            this.labelMqttPort.AutoSize = true;
+            this.labelMqttPort.Location = new System.Drawing.Point(372, 19);
+            this.labelMqttPort.Name = "labelMqttPort";
+            this.labelMqttPort.Size = new System.Drawing.Size(26, 13);
+            this.labelMqttPort.TabIndex = 4;
+            this.labelMqttPort.Text = "Port";
+            // 
+            // MqttPort
+            // 
+            this.MqttPort.Location = new System.Drawing.Point(404, 16);
+            this.MqttPort.Maximum = new decimal(new int[] {
+            10000,
             0,
             0,
             0});
-            this.numericTimerSeconds.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericTimerSeconds.Name = "numericTimerSeconds";
-            this.numericTimerSeconds.Size = new System.Drawing.Size(78, 20);
-            this.numericTimerSeconds.TabIndex = 1;
-            this.numericTimerSeconds.Value = new decimal(new int[] {
-            10,
+            this.MqttPort.Name = "MqttPort";
+            this.MqttPort.Size = new System.Drawing.Size(85, 20);
+            this.MqttPort.TabIndex = 5;
+            this.MqttPort.Value = new decimal(new int[] {
+            1883,
             0,
             0,
             0});
@@ -643,6 +728,9 @@
             this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.Port)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabSystem.ResumeLayout(false);
+            this.tabSystem.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericTimerSeconds)).EndInit();
             this.TabEmail.ResumeLayout(false);
             this.TabEmail.PerformLayout();
             this.TabEmailReceive.ResumeLayout(false);
@@ -650,9 +738,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.MailPort)).EndInit();
             this.TabFTP.ResumeLayout(false);
             this.TabFTP.PerformLayout();
-            this.tabSystem.ResumeLayout(false);
-            this.tabSystem.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericTimerSeconds)).EndInit();
+            this.TabMTQQ.ResumeLayout(false);
+            this.TabMTQQ.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MqttPort)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -710,5 +798,12 @@
         private System.Windows.Forms.TabPage tabSystem;
         private System.Windows.Forms.NumericUpDown numericTimerSeconds;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TabPage TabMTQQ;
+        private System.Windows.Forms.Label labelMQTTBroker;
+        private System.Windows.Forms.TextBox MqttBroker;
+        private System.Windows.Forms.Label labelTopic;
+        private System.Windows.Forms.TextBox MqttTopic;
+        private System.Windows.Forms.NumericUpDown MqttPort;
+        private System.Windows.Forms.Label labelMqttPort;
     }
 }
